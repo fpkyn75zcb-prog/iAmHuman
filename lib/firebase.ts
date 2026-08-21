@@ -1,4 +1,5 @@
 import { getApp, getApps, initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
@@ -16,12 +17,11 @@ const missingConfig = Object.entries(firebaseConfig)
   .map(([key]) => key);
 
 if (missingConfig.length > 0) {
-  throw new Error(
-    `Missing Firebase environment variables: ${missingConfig.join(", ")}`,
-  );
+  throw new Error(`Missing Firebase environment variables: ${missingConfig.join(", ")}`);
 }
 
 const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
 
+export const auth = getAuth(app);
 export const db = getFirestore(app);
 export default app;
