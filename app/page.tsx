@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 export default function Home() {
   return (
     <main className="verify-shell">
@@ -8,9 +6,6 @@ export default function Home() {
         <h1 className="title">Human verification</h1>
         <p className="subtitle">
           Verify an iAmHuman card or profile using its unique verification ID.
-        </p>
-        <p style={{ marginTop: 28 }}>
-          <Link href="/verify/DEMO001">Open demo verification</Link>
         </p>
       </section>
     </main>
