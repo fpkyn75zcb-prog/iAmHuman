@@ -10,7 +10,7 @@ service cloud.firestore {
 
     match /public_verifications/{verificationId} {
       allow get: if resource.data.status == "ACTIVE";
-      allow list: if false;
+      allow list: if isAdmin();
       allow create, update: if isAdmin();
       allow delete: if isAdmin();
     }
