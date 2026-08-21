@@ -1,0 +1,11 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /public_verifications/{verificationId} {
+      allow get: if resource.data.status == "ACTIVE";
+      allow list: if false;
+      allow create, update, delete: if false;
+    }
+  }
+}
