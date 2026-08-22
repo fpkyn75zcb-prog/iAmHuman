@@ -87,7 +87,7 @@ export default function VerifyPage({
     );
   }
 
-  const isVerified = record?.status === "ACTIVE";
+  const isVerified = record?.cardStatus === "ACTIVE";
 
   if (!record || !isVerified) {
     return (
@@ -100,10 +100,10 @@ export default function VerifyPage({
           <div className="profile">
             <div className="profile-label">Verification ID</div>
             <div className="profile-value">{id || "Missing ID"}</div>
-            {record?.status && (
+            {record?.cardStatus && (
               <>
                 <div className="profile-label">Card status</div>
-                <div className="profile-value">{record.status}</div>
+                <div className="profile-value">{record.cardStatus}</div>
               </>
             )}
           </div>
